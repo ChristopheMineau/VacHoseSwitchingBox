@@ -11,9 +11,6 @@ bool Button::getState() {
       initialTriggerTime = currentTime;
     if ((currentTime - initialTriggerTime) > DEBOUNCE_TIME) {
       initialTriggerTime = currentTime;
-      Serial.println("********************** Button::getState() return true");
-      Serial.flush();
-
       return true;
     } else
       return false;

@@ -2,7 +2,7 @@
 #define CMI_CONSTANTS_H
 
 // Pins
-#define SELECT_BUTTON    1        // Select button (INPUT_PULLUP)
+#define SELECT_BUTTON    10       // Select button (INPUT_PULLUP)
 #define POS_SENSOR       2        // Hall effect POS 0 sensor (active LOW)
 #define ENCODER_A        3        // Motor digital encoder A
 #define REMOTE_SEND      4        // IR Remote control emitter

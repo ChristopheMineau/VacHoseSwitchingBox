@@ -61,7 +61,6 @@ void setup() {
   pinMode(LED_POS_3, OUTPUT);
   pinMode(REMOTE_SEND, OUTPUT);     // IR Remote control emitter
   pinMode(MOTOR, OUTPUT);           // Motor driver transistor base
-  pinMode(LED_BUILTIN, OUTPUT); 
  
   // Remote control 
   IrReceiver.begin(REMOTE_RECEIVER, ENABLE_LED_FEEDBACK, USE_DEFAULT_FEEDBACK_LED_PIN);

@@ -102,8 +102,8 @@ void HoseSwitchControl::inputUpdate(int irCode) {
   
   // handle faceplate button
   if (selectButton.getState() and state == State::STOPPED) {
+    DEBUG_PRINTLN();
     DEBUG_PRINTLN("Switch button Hit.");
-    digitalWrite(LED_BUILTIN, HIGH); 
     switch(previousDesiredPos) {
       case(Pos::POS1):
         desiredPos = Pos::POS2;
@@ -173,7 +173,7 @@ void HoseSwitchControl::updateDisplay() {
 
 void HoseSwitchControl::roundRobin(Led& l1, Led& l2, Led& l3) {
   static unsigned long lastBlinkTime = 0;
-  static byte lastBlinkLed = 1;
+  static byte lastBlinkLed = 4;
 
   if ((millis()-lastBlinkTime)>BLINK_TIME) {
     switch(lastBlinkLed) {
@@ -190,11 +190,17 @@ void HoseSwitchControl::roundRobin(Led& l1, Led& l2, Led& l3) {
           lastBlinkLed = 3;
           break;
       case(3):
+          l1.reset();
+          l2.set();
+          l3.reset();
+          lastBlinkLed = 4;
+          break; 
+      case(4):
           l1.set();
           l2.reset();
           l3.reset();
           lastBlinkLed = 1;
-          break;      
+          break;             
     }
     lastBlinkTime = millis();
   }
