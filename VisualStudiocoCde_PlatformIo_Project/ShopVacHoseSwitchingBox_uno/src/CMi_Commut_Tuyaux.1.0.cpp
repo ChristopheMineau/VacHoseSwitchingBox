@@ -28,7 +28,7 @@ void encoderInterrupt() {      // encoder rising edge detected
       }
   }
 
-  if (pulseToGo != 9999) {     
+  if ((pulseToGo != 9999) and (hoseSwitch.state == HoseSwitchControl::State::RUNNING)) {     
     pulseToGo --;
     if (pulseToGo == 0) hoseSwitch.posReached();
   }
@@ -61,6 +61,7 @@ void setup() {
   pinMode(LED_POS_3, OUTPUT);
   pinMode(REMOTE_SEND, OUTPUT);     // IR Remote control emitter
   pinMode(MOTOR, OUTPUT);           // Motor driver transistor base
+  pinMode(LED_BUILTIN, OUTPUT); 
  
   // Remote control 
   IrReceiver.begin(REMOTE_RECEIVER, ENABLE_LED_FEEDBACK, USE_DEFAULT_FEEDBACK_LED_PIN);
@@ -90,7 +91,7 @@ namespace DEBUG_ {
         countCopy = encoderPulseCount;
         pulseToGoCopy = pulseToGo;
       }
-      DEBUG_PRINTLN();
+      DEBUG_PRINTLN("");
       DEBUG_PRINT("hoseSwitch state = ");
       DEBUG_PRINTLN(hoseSwitch.state);
       DEBUG_PRINT("desiredPos = ");

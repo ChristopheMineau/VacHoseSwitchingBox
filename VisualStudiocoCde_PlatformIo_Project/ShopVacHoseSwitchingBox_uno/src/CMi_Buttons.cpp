@@ -6,11 +6,14 @@ Button::Button(byte buttonPin, bool activeLow) : buttonPin(buttonPin), initialTr
 
 bool Button::getState() {
   if (digitalRead(buttonPin)==triggerState) {
-     unsigned long currentTime = millis();
+    unsigned long currentTime = millis();
     if (initialTriggerTime == 0) 
       initialTriggerTime = currentTime;
     if ((currentTime - initialTriggerTime) > DEBOUNCE_TIME) {
       initialTriggerTime = currentTime;
+      Serial.println("********************** Button::getState() return true");
+      Serial.flush();
+
       return true;
     } else
       return false;

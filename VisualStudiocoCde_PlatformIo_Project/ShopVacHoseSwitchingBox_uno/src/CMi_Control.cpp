@@ -53,6 +53,7 @@ void HoseSwitchControl::goToDesiredPos(){
 
     digitalWrite(MOTOR, HIGH);
     currentPos = Pos::INTERMEDIATE;
+    DEBUG_PRINTLN();
     DEBUG_PRINT("Going to Pos : ");
     DEBUG_PRINT(desiredPos);
     DEBUG_PRINT(" Pulse to Go : ");
@@ -65,9 +66,11 @@ void HoseSwitchControl::goToDesiredPos(){
 void HoseSwitchControl::posReached(){
   int countCopy;
   digitalWrite(MOTOR, LOW);
+  state = State::STOPPED ;
   ATOMIC_BLOCK(ATOMIC_RESTORESTATE) {
     countCopy = countBeforeStopping;
   }
+  DEBUG_PRINTLN();
   DEBUG_PRINT("Reached Pos : ");
   DEBUG_PRINTLN(desiredPos);
   if (desiredPos == Pos::POS0) {
@@ -75,17 +78,14 @@ void HoseSwitchControl::posReached(){
     DEBUG_PRINT("Encoder before stopping : ");
     DEBUG_PRINTLN(countCopy);
   }
-
-  state = State::STOPPED ;
   currentPos = desiredPos;
 }
 
 void HoseSwitchControl::inputUpdate(int irCode) {
   static Pos previousDesiredPos = Pos::POS3;
-  // Do not take enties if running
-  if (state != State::STOPPED) return;
+
   // handle irCode if any
-  if (irCode != 0xFF) {
+  if (irCode != 0xFF and state == State::STOPPED) {
     switch (irCode) {
       case 0x4:     //  button 4   on PHILIPS VCR remote control
         desiredPos = Pos::POS1;
@@ -101,8 +101,9 @@ void HoseSwitchControl::inputUpdate(int irCode) {
   }   
   
   // handle faceplate button
-  if (selectButton.getState()) {
+  if (selectButton.getState() and state == State::STOPPED) {
     DEBUG_PRINTLN("Switch button Hit.");
+    digitalWrite(LED_BUILTIN, HIGH); 
     switch(previousDesiredPos) {
       case(Pos::POS1):
         desiredPos = Pos::POS2;
