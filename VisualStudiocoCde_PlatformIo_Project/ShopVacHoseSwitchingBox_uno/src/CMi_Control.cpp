@@ -63,10 +63,10 @@ void HoseSwitchControl::goToDesiredPos(){
   }
 }
 
-void HoseSwitchControl::posReached(){
+void HoseSwitchControl::posReached(){  // beware called by interrupt, once decount reached
   int countCopy;
   digitalWrite(MOTOR, LOW);
-  state = State::STOPPED ;
+  state = State::STOPPED ;             // this will stop the call by interrupt
   ATOMIC_BLOCK(ATOMIC_RESTORESTATE) {
     countCopy = countBeforeStopping;
   }
@@ -77,12 +77,25 @@ void HoseSwitchControl::posReached(){
     DEBUG_PRINTLN("**** POS 0 (Hall sensor) ***");  
     DEBUG_PRINT("Encoder before stopping : ");
     DEBUG_PRINTLN(countCopy);
+    ATOMIC_BLOCK(ATOMIC_RESTORESTATE) {
+      postCalibrationTime = millis();
+    }
   }
   currentPos = desiredPos;
 }
 
 void HoseSwitchControl::inputUpdate(int irCode) {
   static Pos previousDesiredPos = Pos::POS3;
+
+
+  // handle post Calibration delay to go to startup POS = 1
+  if (postCalibrationTime != 0) {
+    if ((millis() - postCalibrationTime) > POST_CAIBRATION_DELAY) {
+      desiredPos = Pos::POS1;
+      goToDesiredPos();
+      postCalibrationTime = 0;
+    }
+  }
 
   // handle irCode if any
   if (irCode != 0xFF and state == State::STOPPED) {

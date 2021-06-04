@@ -12,6 +12,7 @@
 volatile int encoderPulseCount = 0;    // encoder pulses count variable
 volatile int pulseToGo = 0;            // encoder count to be reached
 volatile int countBeforeStopping = 0;      // saved encoder count befor stopping
+volatile unsigned long postCalibrationTime = 0;  // timer after reaching POS 0 to go to POS1 as initial POS at startup
 HoseSwitchControl hoseSwitch = HoseSwitchControl();
 
 // Interrupt Service Routines

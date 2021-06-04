@@ -14,15 +14,16 @@
 #define MOTOR            9
 
 // Constants
-#define ONE_REVOLUTION_COUNT 8400    // Pulse count to turn one full revolution
-#define STOPPING_INERTIA 165
-#define POS1_COUNT  0                                       // Pulse count to reach POS 1 from POS 0
-#define POS2_COUNT  POS1_COUNT + ONE_REVOLUTION_COUNT/3     // Pulse count to reach POS 2 from POS 0  // POS1_COUNT + ONE_REVOLUTION_COUNT/3 
-#define POS3_COUNT  5400                                    // Pulse count to reach POS 3 from POS 0  // POS2_COUNT + ONE_REVOLUTION_COUNT/3 =5600
+#define ONE_REVOLUTION_COUNT 8400    // Pulse count to turn one full revolution (reset twice and check traces POS0 "Encoder before stopping")
+#define STOPPING_INERTIA 160         // pulse remaining by inertia after stopping (reset twice and check traces following POS0 "countCopy")
+#define POS1_COUNT  1360     // Pulse count to reach POS 1 from POS 0 (determins by try and fail)
+#define POS2_COUNT  4230     // Pulse count to reach POS 2 from POS 0  // POS1_COUNT + ONE_REVOLUTION_COUNT/3 
+#define POS3_COUNT  6900     // Pulse count to reach POS 3 from POS 0  // POS2_COUNT + ONE_REVOLUTION_COUNT/3 =5600
 
 #define DEBOUNCE_TIME 400  // in millis
 #define BLINK_TIME 400     // in millis
 #define STUCK_TIME_LIMIT 12000 // running time beyond which the motor is considered as stuck
+#define POST_CAIBRATION_DELAY 1000 // time after reaching POS0 to head to POS1
 
 #define DEBUG   // Activates the debug prints, comment for final version
 #ifdef DEBUG

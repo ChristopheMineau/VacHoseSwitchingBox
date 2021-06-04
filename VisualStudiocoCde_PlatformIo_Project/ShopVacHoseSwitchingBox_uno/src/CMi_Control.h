@@ -12,6 +12,7 @@
 extern volatile int pulseToGo; 
 extern volatile int countBeforeStopping;   
 extern volatile int encoderPulseCount;
+extern volatile unsigned long postCalibrationTime;  
 
 namespace DEBUG_ {
   void displayStatus(bool forceDisplay=false);
