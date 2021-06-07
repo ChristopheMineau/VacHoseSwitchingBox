@@ -1,0 +1,52 @@
+*Pick And Place List
+*Company=
+*Author=
+*eMail=
+*
+*Project=VacHoseSwitchingBox_PCB
+*Date=07:20:45
+*CreatedBy=Fritzing 0.9.4.2019-12-01.CD-498-0-a1ffcea
+*
+*
+*Coordinates in mm, always center of component
+*Origin 0/0=Lower left corner of PCB
+*Rotation in degree (0-360, math. pos.)
+*
+*No;Value;Package;X;Y;Rotation;Side;Name
+1;;;64.9344;-65.0048;0;Bottom;Hole1
+2;;;38.1202;-8.92043;-90;Bottom;TXT1
+3;;;49.9943;-6.72375;-90;Bottom;TXT1
+4;330;THT;9.93438;-47.9248;-90;Bottom;R1
+5;1k;THT;14.8544;-19.0048;0;Bottom;R4
+6;;;33.6804;-8.58161;-90;Bottom;TXT1
+7;330;THT;46.9344;-50.9248;-90;Bottom;R3
+8;;;4.93438;-5.00478;0;Bottom;Hole3
+9;;THT;15.9532;-64.1318;90;Bottom;IR emitter
+10;;;30.4344;-37.0048;0;Bottom;j4
+11;;THT;17.9532;-7.13178;90;Bottom;GND   12V
+12;;5 mm [THT];35.9344;-52.656;0;Bottom;POS 2
+13;;;29.9344;-20.5048;0;Bottom;j8
+14;;;64.9344;-5.00478;0;Bottom;Hole2
+15;330;THT;30.8544;-48.0048;0;Bottom;R2
+16;;;53.9979;-7.67883;-90;Bottom;TXT1
+17;;;45.9559;-7.5101;-90;Bottom;TXT1
+18;330;THT;29.9344;-56.9248;-90;Bottom;R5
+19;;TO92 [THT];20.2839;-15.9159;0;Bottom;Q1
+20;;THT;43.8404;-7.13178;90;Bottom;Box Cable
+21;;;24.9344;-23.0048;0;Bottom;j3
+22;;;52.9344;-38.5048;0;Bottom;j7
+23;;;34.9344;-20.5048;0;Bottom;j1
+24;;;57.9242;-8.01556;-90;Bottom;TXT1
+25;;5 mm [THT];16.9344;-52.656;0;Bottom;POS 1
+26;;;29.8604;-6.21979;-90;Bottom;TXT1
+27;;[THT];59.1844;-22.7548;0;Bottom;RESET
+28;;;42.0782;-8.79683;-90;Bottom;TXT1
+29;;;28.4344;-46.0048;0;Bottom;j5
+30;;;21.0918;-63.8959;0;Bottom;TXT1
+31;;;4.93438;-65.0048;0;Bottom;Hole4
+32;;THT;35.9141;-15.1913;-90;Bottom;IR Receiver
+33;;;10.9556;-63.9409;0;Bottom;TXT1
+34;;;46.4344;-20.0048;0;Bottom;Jumper2
+35;;;23.0057;-31.3848;90;Bottom;Nano
+36;;[THT];59.1844;-40.7548;0;Bottom;CHANGE POSITION
+37;;5 mm [THT];53.9344;-52.656;0;Bottom;POS 3
