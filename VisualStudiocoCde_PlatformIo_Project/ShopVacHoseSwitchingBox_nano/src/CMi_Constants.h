@@ -25,7 +25,7 @@
 #define STUCK_TIME_LIMIT 12000 // running time beyond which the motor is considered as stuck
 #define POST_CAIBRATION_DELAY 1000 // time after reaching POS0 to head to POS1
 
-#define DEBUG   // Activates the debug prints, comment for final version
+// #define DEBUG   // Activates the debug prints, comment for final version
 #ifdef DEBUG
   #define DEBUG_PRINT(...)    Serial.print(__VA_ARGS__)
   #define DEBUG_PRINTLN(...)  Serial.println(__VA_ARGS__)
