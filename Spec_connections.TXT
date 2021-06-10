@@ -1,25 +1,25 @@
-Brochage Arduino :
+Connections to Arduino :
 ================
 
-Capteur Hall position : D2
+Position Sensor Hall effect : D2
 Encoder A : D3
-IR emiter : D4
+IR emiter : D4 (provision)
 IR receiver : D5
 LED1 : D6
 LED2 : D7
 LED3 : D8
-Moteur : D9
-Bouton : D10 (pullup)
+Motor : D9
+Button : D10 (pullup)
 
-Câble Bloc de commande - Boîte commutateur (câble téléphonique 8 conducteurs)
+Cable from command board to switching box ( telephone 8 conductors cable)
 -----------------------------------------------------------------------------
-Moteur +(12V 400mA) : violet
-Moteur -(12V 400mA) : blanc
-GND TTL : Marron
-VCC TTL 5V : bleu
-Encodeur A : jaune
-Encodeur B : gris
-Capteur Position effet Hall : transparent
+Moteur +(12V 400mA) : purple
+Moteur -(12V 400mA) : white
+GND TTL : brown
+VCC TTL 5V : blue
+Encodeur A : yellow
+Encodeur B : grey
+Position Sensor Hall effect : translucid
 
 
 
@@ -30,31 +30,31 @@ Capteur Position effet Hall : transparent
 
 
 
-Codes Télécommande PHILIPS VCR
+Codes remote control PHILIPS VCR
 ==============================
-Mesurés avec le programme Arduino D:\Documents\Christophe\Arduino\IR_telecommande\IR_telecommande.ino
+Measures using  D:\Documents\Christophe\Arduino\IR_telecommande\IR_telecommande.ino
 
-Déja utilisé commande aspiro :
+Already used for cyclone :
 ------------------------------
-Bouton marche arret :
+Button start stop :
 Protocol=RC5 Address=0x0 Command=0xC Toggle=1 Raw-Data=0x180C 13 bits MSB first
-Bouton 1:
+Button 1:
 Protocol=RC5 Address=0x0 Command=0x1 Repeat gap=89200us Raw-Data=0x1001 13 bits MSB first
-Bouton 2 : 
+Button 2 : 
 Protocol=RC5 Address=0x0 Command=0x2 Toggle=1 Repeat gap=90000us Raw-Data=0x1802 13 bits MSB first
-Bouton 3 :
+Button 3 :
 Protocol=RC5 Address=0x0 Command=0x3 Toggle=1 Raw-Data=0x1803 13 bits MSB first
 
-Pour la commande du commutateur :
+For the switching box command :
 ----------------------------------
-Bouton 4 :
+Button 4 :
 Protocol=RC5 Address=0x0 Command=------------------ Raw-Data=0x1004 13 bits MSB first
-Bouton 5 :
+Button 5 :
 Protocol=RC5 Address=0x0 Command=0x5 Toggle=1 Raw-Data=0x1805 13 bits MSB first
-Bouton 6 :
+Button 6 :
 Protocol=RC5 Address=0x0 Command=0x6 Raw-Data=0x1006 13 bits MSB first
 
-Pour l'assainisseur d'air:
+Pour l'assainisseur d'air: (provision, non realisé)
 --------------------------
 STOP pour OFF :
 Protocol=RC5 Address=0x0 Command=0x1D Toggle=1 Raw-Data=0x181D 13 bits MSB first

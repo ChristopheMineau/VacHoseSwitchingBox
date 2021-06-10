@@ -54,12 +54,12 @@ void HoseSwitchControl::goToDesiredPos(){
     digitalWrite(MOTOR, HIGH);
     currentPos = Pos::INTERMEDIATE;
     DEBUG_PRINTLN();
+    DEBUG_PRINT("Encoder before moving : ");
+    DEBUG_PRINTLN(countCopy); 
     DEBUG_PRINT("Going to Pos : ");
     DEBUG_PRINT(desiredPos);
     DEBUG_PRINT(" Pulse to Go : ");
     DEBUG_PRINTLN(pulseToGo); 
-    DEBUG_PRINT(" countCopy : ");
-    DEBUG_PRINTLN(countCopy); 
   }
 }
 
@@ -71,12 +71,12 @@ void HoseSwitchControl::posReached(){  // beware called by interrupt, once decou
     countCopy = countBeforeStopping;
   }
   DEBUG_PRINTLN();
-  DEBUG_PRINT("Reached Pos : ");
+  DEBUG_PRINT(" ### Reached Pos : ");
   DEBUG_PRINTLN(desiredPos);
+  DEBUG_PRINT("Encoder before stopping : ");
+  DEBUG_PRINTLN(countCopy);
   if (desiredPos == Pos::POS0) {
     DEBUG_PRINTLN("**** POS 0 (Hall sensor) ***");  
-    DEBUG_PRINT("Encoder before stopping : ");
-    DEBUG_PRINTLN(countCopy);
     ATOMIC_BLOCK(ATOMIC_RESTORESTATE) {
       postCalibrationTime = millis();
     }
