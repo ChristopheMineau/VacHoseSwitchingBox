@@ -20,7 +20,13 @@ An error condition would be indicated by the three leds blinking at the same tim
 The design is modeled using Rhino 3D.
 See https://github.com/ChristopheMineau/VacHoseSwitchingBox/blob/master/Commutateur_tuyaux.3dm
 
-The principle 
+The mechanism is based on a large wooden geared crown which acts as an obturator, with a hole allowing to open only one of the three ports.
+
+![Model output ports view](https://github.com/ChristopheMineau/VacHoseSwitchingBox/blob/master/Pictures/Model_3ports_view.png)
+![Model gears view](https://github.com/ChristopheMineau/VacHoseSwitchingBox/blob/master/Pictures/Model_Gears_view.png)
+
+There is a small gear which is motored using a small high tork 12V DC motor running at 30 RPM. (Model JGY-371)
+![Motor](https://github.com/ChristopheMineau/VacHoseSwitchingBox/blob/master/Pictures/DC12V_30RPM_JGY-371_.jpg)
 
 ### Labels
 The control board is enclosed in an electric box enclosure. The buttons and leds are labelled using stickers designed with this Scribus file.
